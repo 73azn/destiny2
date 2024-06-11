@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dictionary Transformation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://www.pcinvasion.com/wp-content/uploads/2024/06/Destiny-2-The-Final-Shape-Salvations-Edge-Raid-3D-Object.jpg?w=1280&resize=1200%2C675') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label, input, select {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>4th encounter</h2>
+        <form id="shapeForm">
+            <label for="keys">Enter characters only:</label><br>
+            <input type="text" id="keys" name="keys"><br><br>
+
+            <div id="shapesDiv"></div>
+            <input type="button" value="Next" id="nextBtn" onclick="askForContains()">
+            <input type="button" value="Submit" id="submitBtn" onclick="transformDict()" style="display:none;">
+            <input type="button" value="Reset" id="resetBtn" onclick="resetForm()" style="display:none;">
+        </form>
+
+        <h3>Swaps:</h3>
+        <div id="swaps"></div>
+
+    
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
