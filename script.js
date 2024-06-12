@@ -4,6 +4,12 @@ const pyramid = ["s", "t"];
 const _3dtri = ["t", "t"];
 const _3dcir = ["c", "c"];
 const _3dsqu = ["s", "s"];
+const dirc = ["left","middle","right"]
+const shapes = {"c":"◯","t":"△","s":"▢"}
+function getKeyIndex(obj, key) {
+    const keys = Object.keys(obj);
+    return keys.indexOf(key);
+}
 
 const maindict = {
     "1": cone,
@@ -36,7 +42,7 @@ function transformDictionary(originalDict) {
                             originalDict[otherKey].splice(originalDict[otherKey].indexOf(value), 1);
                             originalDict[key].push(value);
                             originalDict[otherKey].push(key);
-                            swaps.push(`Step ${step}: select ${key} from ${key} statue and dissect ${value} from statue ${otherKey}`);
+                            swaps.push(`Step ${step}: select ${shapes[key]} from ${dirc[getKeyIndex(originalDict,key)]} statue and dissect ${shapes[value]} from ${dirc[getKeyIndex(originalDict,otherKey)]} statue`);
                             step++;
                             break;
                         }
@@ -61,7 +67,7 @@ function askForContains() {
 
     keys.forEach(key => {
         let label = document.createElement('label');
-        label.innerText = `What does ${key} contain?`;
+        label.innerText = `What does ${dirc[keysArray.indexOf(key)]} contain?`;
         shapesDiv.appendChild(label);
 
         let select = document.createElement('select');
